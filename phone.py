@@ -13,21 +13,14 @@ class Phone:
     is_in_stock: bool
 
     def get_full_name(self) -> str:
-        """Return brand and model in a single string."""
         return f"{self.brand} {self.model}"
 
     def apply_discount(self, discount_percent: float) -> None:
-        """
-        Apply a percentage-based discount to the phone price.
-
-        Discount is interpreted as a value from 0 to 100.
-        """
         if discount_percent < 0:
             raise ValueError("Discount percent cannot be negative.")
         self.price -= self.price * (discount_percent / 100)
 
     def check_availability(self) -> str:
-        """Return stock availability message."""
         return "В наличии" if self.is_in_stock else "Нет в наличии"
 
     def __str__(self) -> str:
